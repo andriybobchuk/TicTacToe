@@ -1,8 +1,6 @@
 package com.andriybobchuk;
 
 
-import com.andriybobchuk.helpers.GameBoard;
-
 public class Main {
 
     /**
@@ -37,11 +35,13 @@ public class Main {
      * */
 
 
-    public static void main(String[] args)
-    {
-        new GameBoard().printGameBoard();
+    public static void main(String[] args) throws InterruptedException {
 
-        new functions().playerMove();
+        GameBoard.drawEmpty();
+
+        Player.move();
+        Player.move();
+        Player.move();
     }
 
 
