@@ -7,26 +7,6 @@ public class GameBoard {
 
 
 
-    public static final void drawEmpty()
-    {
-        char[][] gameBoard = { {' ', ' ', ' ', '|', ' ', ' ', ' ', '|', ' ', ' ', ' '},
-                {' ', '-', ' ', '+', ' ', '-', ' ', '+', ' ', '-', ' '},
-                {' ', ' ', ' ', '|', ' ', ' ', ' ', '|', ' ', ' ', ' '},
-                {' ', '-', ' ', '+', ' ', '-', ' ', '+', ' ', '-', ' '},
-                {' ', ' ', ' ', '|', ' ', ' ', ' ', '|', ' ', ' ', ' '}
-        };
-
-        for(int i = 0; i < 5; i++)
-        {
-            for(int j = 0; j < 11; j++)
-            {
-                System.out.print(gameBoard[i][j]);
-            }
-            System.out.println();
-        }
-    }
-
-
     public static final void update()
     {
         ClearScreen.clear();      // Clear previous stuff
@@ -36,13 +16,17 @@ public class GameBoard {
 
         for (int i = 0; i < 9; i++)
         {
-            if(new Cells().getFilledCells(i) == true)
+            if(Cells.getFilledCells(i) == "player")
             {
                 tic[i] = 'O';
             }
+            else if(Cells.getFilledCells(i) == "opponent")
+            {
+                tic[i] = 'X';
+            }
             else
             {
-                tic[i] = ' ';
+                tic[i] = Character.forDigit(i+1,10);
             }
         }
 

@@ -1,6 +1,10 @@
 package com.andriybobchuk;
 
 
+import com.andriybobchuk.participants.Judge;
+import com.andriybobchuk.participants.Opponent;
+import com.andriybobchuk.participants.Player;
+
 public class Main {
 
     /**
@@ -37,11 +41,29 @@ public class Main {
 
     public static void main(String[] args) throws InterruptedException {
 
-        GameBoard.drawEmpty();
+
+        Opponent.move();
+        Player.move();
+
+        Opponent.move();
+        Player.move();
+
+        Opponent.move();
+        Judge.makeDecision();
 
         Player.move();
+        Judge.makeDecision();
+
+        Opponent.move();
+        Judge.makeDecision();
+
         Player.move();
-        Player.move();
+        Judge.makeDecision();
+
+        Opponent.move();
+        Judge.makeDecision();
+
+
     }
 
 
