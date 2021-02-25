@@ -1,5 +1,7 @@
 package com.andriybobchuk.values;
 
+import com.andriybobchuk.helpers.Trifles;
+
 public class Cells {
 
     /** This is the array of 9 cells
@@ -9,26 +11,37 @@ public class Cells {
     private static String[] filledCells = new String[9];
 
 
-    /**
-     * We need it when we want to print the table.
-     * @return whole array with all cells data
-     */
+
+
+    public static String[] getWholeArray() {
+        return filledCells;
+    }
+
     public static String getFilledCells(int index) {
         return filledCells[index];
     }
 
-    /**
-     * Sets the chosen cell to filled (TRUE)
-     * @param index index of cell to be filled
-     */
+
     public static void setFilledCells(int index, String id) {
         filledCells[index] = id;
     }
 
+    public static void resetAllCells() {
+        for (int i = 0; i < 9; i++)
+        {
+            filledCells[i] = String.valueOf(i+1);
 
+        }
+    }
+
+    /**
+     * Checks if the cell is empty
+     * @param index
+     * @return
+     */
     public static boolean emptyCell(int index)
     {
-        if(filledCells[index] != null)
+        if(!Trifles.isNumeric(filledCells[index]))
         {
             return false;
         }

@@ -1,67 +1,54 @@
 package com.andriybobchuk;
 
 
+import com.andriybobchuk.helpers.Trifles;
 import com.andriybobchuk.participants.Judge;
 import com.andriybobchuk.participants.Opponent;
 import com.andriybobchuk.participants.Player;
+import com.andriybobchuk.values.Cells;
 
-public class Main {
-
-    /**
-     * The TicTacToe game
-     * Andrii Bobchuk
-     * NOTE 0: (I don't care)
-     *
-     * So at first we print empty field, numerical table on the right, and terminal UI on the bottom:
-     *      "- Make your move > _"
-     * Player chooses num between 1-9;
-     *
-     * Program clears empty table (clrscr);
-     * Prints gameBoard again but with 'O' in the chosen place
-     *
-     * HOW?
-     *
-     * - Easy
-     * There are 9 possible to fill empty spaces in the gameBoard
-     * Simply calculated I knew they're:
-     *      gameBoard[0][1],[0][5],[0][9]
-     *      gameBoard[2][1],[2][5],[2][9]
-     *      gameBoard[4][1],[4][5],[4][9]
-     *
-     *      I spent on it 30 seconds so it's an optimal solution. (see NOTE 0)
-     *
-     * After we know it we have to make the switch-case with user input and filling the corresponding cell
-     *
-     * Sounds quite easy
-     * ...
-     * But that's only the user part.......
-     *
-     * */
+public class Main extends Trifles {
 
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
+
+        Cells.resetAllCells();
 
 
-        Opponent.move();
-        Player.move();
+        if(lot().equals("opponent"))
+        {
+            System.out.println("Opponent goes first..");
 
-        Opponent.move();
-        Player.move();
+            for(int i = 0; i < 4; i++)
+            {
+                Opponent.move();
+                Judge.declareVictory();
 
-        Opponent.move();
-        Judge.makeDecision();
+                Player.move();
+                Judge.declareVictory();
+            }
 
-        Player.move();
-        Judge.makeDecision();
+            Opponent.move();
+            Judge.declareVictory();
+        }
+        else if(lot().equals("player"))
+        {
+            System.out.println("You go first");
 
-        Opponent.move();
-        Judge.makeDecision();
+            for(int i = 0; i < 4; i++)
+            {
+                Player.move();
+                Judge.declareVictory();
 
-        Player.move();
-        Judge.makeDecision();
+                Opponent.move();
+                Judge.declareVictory();
+            }
+            Player.move();
+            Judge.declareVictory();
 
-        Opponent.move();
-        Judge.makeDecision();
+        }
+
+        System.out.println("Draw XO!");
 
 
     }

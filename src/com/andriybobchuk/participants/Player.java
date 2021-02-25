@@ -10,7 +10,7 @@ public class Player {
 
 
 
-    public static void move() throws InterruptedException {
+    public static void move() {
 
         System.out.println("\n You have to choose the cell: ");
 

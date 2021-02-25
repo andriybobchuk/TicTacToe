@@ -6,7 +6,11 @@ import com.andriybobchuk.values.Cells;
 public class GameBoard {
 
 
-
+    /**
+     * - Converts 1d array of strings to 1d array of chars
+     * - Converts 1d array of chars to 2d array of chars
+     * - prints it
+     */
     public static final void update()
     {
         ClearScreen.clear();      // Clear previous stuff
