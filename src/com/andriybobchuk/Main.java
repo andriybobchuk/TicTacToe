@@ -22,30 +22,34 @@ public class Main extends Trifles {
             for(int i = 0; i < 4; i++)
             {
                 Opponent.move();
-                Judge.declareVictory();
+                Judge.confirmVictory();
 
                 Player.move();
-                Judge.declareVictory();
+                Judge.confirmVictory();
             }
 
             Opponent.move();
-            Judge.declareVictory();
+            Judge.confirmVictory();
         }
-        else if(lot().equals("player"))
+        if(lot().equals("player"))
         {
             System.out.println("You go first");
 
             for(int i = 0; i < 4; i++)
             {
                 Player.move();
-                Judge.declareVictory();
+                Judge.confirmVictory();
 
                 Opponent.move();
-                Judge.declareVictory();
+                Judge.confirmVictory();
             }
             Player.move();
-            Judge.declareVictory();
+            Judge.confirmVictory();
 
+        }
+        else
+        {
+            System.out.println("Lot was \"" + lot() + "\" ");
         }
 
         System.out.println("Draw XO!");

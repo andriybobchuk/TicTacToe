@@ -10,6 +10,10 @@ public class Cells {
      */
     private static String[] filledCells = new String[9];
 
+    // Cells groups:
+    static int[] CORNERS_INDICES = {0, 2, 6, 8};
+
+
 
 
 
@@ -49,5 +53,20 @@ public class Cells {
         {
             return true;
         }
+    }
+
+
+    public static int nextEmptyCornerIndex()
+    {
+        int nextEmptyCornerIndex = -1;
+
+        for (int i = 0; i < CORNERS_INDICES.length; i++)
+        {
+            if(emptyCell(CORNERS_INDICES[i]))
+            {
+                nextEmptyCornerIndex = CORNERS_INDICES[i];
+            }
+        }
+        return nextEmptyCornerIndex;
     }
 }

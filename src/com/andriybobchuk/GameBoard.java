@@ -11,7 +11,7 @@ public class GameBoard {
      * - Converts 1d array of chars to 2d array of chars
      * - prints it
      */
-    public static final void update()
+    public static void update()
     {
         ClearScreen.clear();      // Clear previous stuff
 
