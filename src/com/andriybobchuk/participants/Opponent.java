@@ -20,15 +20,9 @@ public class Opponent extends Cells {
      *
      */
 
-
-    public static void move()  {
-
-
-
-        //TODO: check if removed hazards
-        removePlayerPossibilities();
-
-        while(true) // Runs until we fill the cell
+    public static void defMove ()
+    {
+        while(true) // Runs until we fill any empty cell
         {
             if(nextEmptyCornerIndex() != -1)
             {
@@ -48,6 +42,13 @@ public class Opponent extends Cells {
             }
 
         }
+    }
+
+    public static void move()  {
+
+
+
+        if(removePlayerWinPossibilities() == false) defMove();
 
 
 
@@ -55,24 +56,15 @@ public class Opponent extends Cells {
         // Refresh the gameBoard
         GameBoard.update();
 
+        Judge.confirmVictory();
+
     }
 
-
-    public static boolean removePlayerPossibilities()
+    public static boolean removeVerticalHazards(String[][] board)
     {
-        String[][] board = Translator.matrixFrom(Cells.getWholeArray());
-
-
         //vertical lines
         for(int i = 0; i<3; i++){
-            /**
-             * in each row we have row. If 2 cells of that row are the same and they are equal to player
-             * than the third one should be taken by us to prevent player from the win.
-             * We don't know where we have to put the cross cuz every time it will be different.
-             * With that in mind I will just try to fill each cell of that row with 'X' and after all, the one I
-             * really need will be filled.
-             * I am so smart
-             */
+
 
             String line = board[i][0] + board[i][1] + board[i][2];
 
@@ -105,14 +97,16 @@ public class Opponent extends Cells {
                     if(emptyCell(index))
                     {
                         setFilledCells(index, "opponent");
+                        return true;
                     }
                 }
-                return true;
             }
         }
+        return false;
+    }
 
-
-
+    public static boolean removeHorizontalHazards(String[][] board)
+    {
         // Horizontal lines
         for(int i = 0; i<3; i++){
 
@@ -148,12 +142,17 @@ public class Opponent extends Cells {
                     if(emptyCell(index))
                     {
                         setFilledCells(index, "opponent");
+                        return true;
                     }
                 }
-                return true;
             }
         }
+        return false;
+    }
 
+
+    public static boolean removeMainDiagonalHazards(String[][] board)
+    {
 
         // Main Diagonal
         String line = board[0][0] + board[1][1] + board[2][2];
@@ -201,31 +200,35 @@ public class Opponent extends Cells {
 
         }
 
+        return false;
+    }
+
+
+    public static boolean removeSecondaryDiagonalHazards(String[][] board)
+    {
 
         // Secondary Diagonal
+        String line = board[2][0] + board[1][1] + board[0][2];
 
-        // Main Diagonal
-        String line1 = board[2][0] + board[1][1] + board[0][2];
+        int playerCounter = 0;
 
-        int playerCounter1 = 0;
-
-        for(int g = 0; g < line1.length(); g++)
+        for(int g = 0; g < line.length(); g++)
         {
-            if(line1.charAt(g) == 'p' && line1.charAt(g+1) == 'l')
+            if(line.charAt(g) == 'p' && line.charAt(g+1) == 'l')
             {
-                playerCounter1++;
+                playerCounter++;
             }
             // if we have our 'X' in the line with potential hazard than it is not a hazard ↓
-            if(line1.charAt(g) == 'o' && line1.charAt(g+1) == 'p')
+            if(line.charAt(g) == 'o' && line.charAt(g+1) == 'p')
             {
-                playerCounter1 = 0;
+                playerCounter = 0;
             }
 
         }
 
-        if (playerCounter1 == 2)
+        if (playerCounter == 2)
         {
-            System.out.println("Main diagonal hazard");
+            System.out.println("Secondary diagonal hazard");
             //&
             // Remove that hazard by placing the 'X' in danger line
 
@@ -249,7 +252,21 @@ public class Opponent extends Cells {
             }
 
         }
+        return false;
+    }
 
+
+    public static boolean removePlayerWinPossibilities()
+    {
+        String[][] board = Translator.matrixFrom(Cells.getWholeArray());
+
+        if (removeVerticalHazards(board)) return true;
+
+        if (removeHorizontalHazards(board)) return true;
+
+        if (removeMainDiagonalHazards(board)) return true;
+
+        if (removeSecondaryDiagonalHazards(board)) return true;
 
 
         return false;

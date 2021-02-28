@@ -33,6 +33,8 @@ public class Player {
             move();
         }
 
+        Judge.confirmVictory();
+
     }
 
 }

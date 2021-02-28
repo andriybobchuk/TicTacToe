@@ -2,7 +2,6 @@ package com.andriybobchuk;
 
 
 import com.andriybobchuk.helpers.Trifles;
-import com.andriybobchuk.participants.Judge;
 import com.andriybobchuk.participants.Opponent;
 import com.andriybobchuk.participants.Player;
 import com.andriybobchuk.values.Cells;
@@ -14,42 +13,35 @@ public class Main extends Trifles {
 
         Cells.resetAllCells();
 
+        String turn = lot();
 
-        if(lot().equals("opponent"))
+        if(turn.equals("opponent"))
         {
             System.out.println("Opponent goes first..");
 
             for(int i = 0; i < 4; i++)
             {
                 Opponent.move();
-                Judge.confirmVictory();
-
                 Player.move();
-                Judge.confirmVictory();
             }
 
             Opponent.move();
-            Judge.confirmVictory();
         }
-        if(lot().equals("player"))
+        if(turn.equals("player"))
         {
             System.out.println("You go first");
 
             for(int i = 0; i < 4; i++)
             {
                 Player.move();
-                Judge.confirmVictory();
-
                 Opponent.move();
-                Judge.confirmVictory();
             }
-            Player.move();
-            Judge.confirmVictory();
 
+            Player.move();
         }
         else
         {
-            System.out.println("Lot was \"" + lot() + "\" ");
+            System.out.println("Lot was \"" + turn + "\" ");
         }
 
         System.out.println("Draw XO!");
