@@ -1,7 +1,7 @@
 package com.andriybobchuk.participants;
 
-import com.andriybobchuk.helpers.Translator;
-import com.andriybobchuk.values.Cells;
+import com.andriybobchuk.helperFunctions.Helpers;
+import com.andriybobchuk.battleField.Cells;
 
 
 /**
@@ -19,7 +19,7 @@ public class Judge {
 
     public static void confirmVictory()
     {
-        String[][] board = Translator.matrixFrom(Cells.getWholeArray());
+        String[][] board = Helpers.toMatrix(Cells.getWholeArray());
 
         //horizontal lines
         for(int i = 0; i<3; i++){

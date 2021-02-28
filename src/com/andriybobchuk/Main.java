@@ -1,12 +1,12 @@
 package com.andriybobchuk;
 
 
-import com.andriybobchuk.helpers.Trifles;
-import com.andriybobchuk.participants.Opponent;
+import com.andriybobchuk.helperFunctions.Helpers;
+import com.andriybobchuk.participants.opponent.Opponent;
 import com.andriybobchuk.participants.Player;
-import com.andriybobchuk.values.Cells;
+import com.andriybobchuk.battleField.Cells;
 
-public class Main extends Trifles {
+public class Main extends Helpers {
 
 
     public static void main(String[] args) {
@@ -17,7 +17,7 @@ public class Main extends Trifles {
 
         if(turn.equals("opponent"))
         {
-            System.out.println("Opponent goes first..");
+            System.out.println("Opponent goes first with 'X' ↓");
 
             for(int i = 0; i < 4; i++)
             {
@@ -27,9 +27,9 @@ public class Main extends Trifles {
 
             Opponent.move();
         }
-        if(turn.equals("player"))
+        else if(turn.equals("player"))
         {
-            System.out.println("You go first");
+            System.out.println("You go first with 'O' ↓");
 
             for(int i = 0; i < 4; i++)
             {
@@ -39,10 +39,7 @@ public class Main extends Trifles {
 
             Player.move();
         }
-        else
-        {
-            System.out.println("Lot was \"" + turn + "\" ");
-        }
+
 
         System.out.println("\nDraw XO!");
 

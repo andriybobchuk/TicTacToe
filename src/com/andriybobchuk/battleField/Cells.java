@@ -1,16 +1,14 @@
-package com.andriybobchuk.values;
+package com.andriybobchuk.battleField;
 
-import com.andriybobchuk.helpers.Trifles;
+import com.andriybobchuk.helperFunctions.Helpers;
 
 public class Cells {
 
-    /** This is the array of 9 cells
-     * Each of them can be either filled or empty (true or false)
-     * Basically this array holds the main game information.
-     */
+
+
     private static String[] filledCells = new String[9];
 
-    // Cells groups:
+    // Cell groups:
     static int[] CORNERS_INDICES = {0, 2, 6, 8};
 
 
@@ -45,7 +43,7 @@ public class Cells {
      */
     public static boolean emptyCell(int index)
     {
-        if(!Trifles.isNumeric(filledCells[index]))
+        if(!Helpers.isNumeric(filledCells[index]))
         {
             return false;
         }

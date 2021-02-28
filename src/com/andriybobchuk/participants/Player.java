@@ -1,8 +1,8 @@
 package com.andriybobchuk.participants;
 
 
-import com.andriybobchuk.GameBoard;
-import com.andriybobchuk.values.Cells;
+import com.andriybobchuk.battleField.GameBoard;
+import com.andriybobchuk.battleField.Cells;
 
 import java.util.Scanner;
 
