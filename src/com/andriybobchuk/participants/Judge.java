@@ -12,7 +12,7 @@ public class Judge {
 
     public static void determineWinner(String winner)
     {
-        System.out.println(winner + " has won!");
+        System.out.println("\n'" + winner + "' Won!");
         System.exit(0);
     }
 

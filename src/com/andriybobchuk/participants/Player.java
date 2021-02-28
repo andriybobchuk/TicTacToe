@@ -22,7 +22,7 @@ public class Player {
         if(Cells.emptyCell((cell-1)))
         {
             // Send the chosen cell to array of filled cells
-            Cells.setFilledCells((cell-1), "player");
+            Cells.setFilledCells((cell-1), "O");
 
             // Refresh the gameBoard
             GameBoard.update();

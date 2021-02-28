@@ -44,7 +44,7 @@ public class Main extends Trifles {
             System.out.println("Lot was \"" + turn + "\" ");
         }
 
-        System.out.println("Draw XO!");
+        System.out.println("\nDraw XO!");
 
 
     }

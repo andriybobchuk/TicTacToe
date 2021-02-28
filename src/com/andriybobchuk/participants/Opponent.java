@@ -26,7 +26,7 @@ public class Opponent extends Cells {
         {
             if(nextEmptyCornerIndex() != -1)
             {
-                setFilledCells(nextEmptyCornerIndex(), "opponent");
+                setFilledCells(nextEmptyCornerIndex(), "X");
                 break;
             }
             else // no empty corners
@@ -36,7 +36,7 @@ public class Opponent extends Cells {
 
                 if(emptyCell(cell))
                 {
-                    setFilledCells(cell, "opponent");
+                    setFilledCells(cell, "X");
                     break;
                 }
             }
@@ -72,15 +72,15 @@ public class Opponent extends Cells {
 
             for(int g = 0; g < line.length(); g++)
             {
-                if(line.charAt(g) == 'p' && line.charAt(g+1) == 'l')
+                if(line.charAt(g) == 'O')
                 {
                     playerCounter++;
                 }
                 // if we have our 'X' in the line with potential hazard than it is not a hazard ↓
-                if(line.charAt(g) == 'o' && line.charAt(g+1) == 'p')
-                {
-                    playerCounter = 0;
-                }
+//                if(line.charAt(g) == 'o' && line.charAt(g+1) == 'p')
+//                {
+//                    playerCounter = 0;
+//                }
 
             }
 
@@ -96,7 +96,7 @@ public class Opponent extends Cells {
 
                     if(emptyCell(index))
                     {
-                        setFilledCells(index, "opponent");
+                        setFilledCells(index, "X");
                         return true;
                     }
                 }
@@ -117,15 +117,15 @@ public class Opponent extends Cells {
 
             for(int g = 0; g < line.length(); g++)
             {
-                if(line.charAt(g) == 'p' && line.charAt(g+1) == 'l')
+                if(line.charAt(g) == 'O')
                 {
                     playerCounter++;
                 }
                 // if we have our 'X' in the line with potential hazard than it is not a hazard ↓
-                if(line.charAt(g) == 'o' && line.charAt(g+1) == 'p')
-                {
-                    playerCounter = 0;
-                }
+//                if(line.charAt(g) == 'o' && line.charAt(g+1) == 'p')
+//                {
+//                    playerCounter = 0;
+//                }
 
             }
 
@@ -141,7 +141,7 @@ public class Opponent extends Cells {
 
                     if(emptyCell(index))
                     {
-                        setFilledCells(index, "opponent");
+                        setFilledCells(index, "X");
                         return true;
                     }
                 }
@@ -161,15 +161,15 @@ public class Opponent extends Cells {
 
         for(int g = 0; g < line.length(); g++)
         {
-            if(line.charAt(g) == 'p' && line.charAt(g+1) == 'l')
+            if(line.charAt(g) == 'O')
             {
                 playerCounter++;
             }
             // if we have our 'X' in the line with potential hazard than it is not a hazard ↓
-            if(line.charAt(g) == 'o' && line.charAt(g+1) == 'p')
-            {
-                playerCounter = 0;
-            }
+//            if(line.charAt(g) == 'o' && line.charAt(g+1) == 'p')
+//            {
+//                playerCounter = 0;
+//            }
 
         }
 
@@ -189,7 +189,7 @@ public class Opponent extends Cells {
 
                         if(emptyCell(index))
                         {
-                            setFilledCells(index, "opponent");
+                            setFilledCells(index, "X");
                             return true;
                         }
                     }
@@ -214,15 +214,15 @@ public class Opponent extends Cells {
 
         for(int g = 0; g < line.length(); g++)
         {
-            if(line.charAt(g) == 'p' && line.charAt(g+1) == 'l')
+            if(line.charAt(g) == 'O')
             {
                 playerCounter++;
             }
             // if we have our 'X' in the line with potential hazard than it is not a hazard ↓
-            if(line.charAt(g) == 'o' && line.charAt(g+1) == 'p')
-            {
-                playerCounter = 0;
-            }
+//            if(line.charAt(g) == 'o' && line.charAt(g+1) == 'p')
+//            {
+//                playerCounter = 0;
+//            }
 
         }
 
@@ -242,7 +242,7 @@ public class Opponent extends Cells {
 
                         if(emptyCell(index))
                         {
-                            setFilledCells(index, "opponent");
+                            setFilledCells(index, "X");
                             return true;
                         }
                     }

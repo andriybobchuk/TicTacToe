@@ -3,7 +3,7 @@ package com.andriybobchuk;
 import com.andriybobchuk.helpers.ClearScreen;
 import com.andriybobchuk.values.Cells;
 
-public class GameBoard {
+public class GameBoard extends Cells{
 
 
     /**
@@ -16,30 +16,30 @@ public class GameBoard {
         ClearScreen.clear();      // Clear previous stuff
 
 
-        char[] tic = new char[9];
+//        char[] tic = new char[9];
+//
+//        for (int i = 0; i < 9; i++)
+//        {
+//            if(getFilledCells(i) == "player")
+//            {
+//                tic[i] = 'O';
+//            }
+//            else if(getFilledCells(i) == "opponent")
+//            {
+//                tic[i] = 'X';
+//            }
+//            else
+//            {
+//                tic[i] = (char)getFilledCells(i).charAt(0);
+//            }
+//        }
 
-        for (int i = 0; i < 9; i++)
-        {
-            if(Cells.getFilledCells(i) == "player")
-            {
-                tic[i] = 'O';
-            }
-            else if(Cells.getFilledCells(i) == "opponent")
-            {
-                tic[i] = 'X';
-            }
-            else
-            {
-                tic[i] = Character.forDigit(i+1,10);
-            }
-        }
 
-
-        char[][] gameBoard = { {' ', tic[0], ' ', '|', ' ', tic[1], ' ', '|', ' ', tic[2], ' '},
+        char[][] gameBoard = { {' ', getFilledCells(0).charAt(0), ' ', '|', ' ', getFilledCells(1).charAt(0), ' ', '|', ' ', getFilledCells(2).charAt(0), ' '},
                 {' ', '-', ' ', '+', ' ', '-', ' ', '+', ' ', '-', ' '},
-                {' ', tic[3], ' ', '|', ' ', tic[4], ' ', '|', ' ', tic[5], ' '},
+                {' ', getFilledCells(3).charAt(0), ' ', '|', ' ', getFilledCells(4).charAt(0), ' ', '|', ' ', getFilledCells(5).charAt(0), ' '},
                 {' ', '-', ' ', '+', ' ', '-', ' ', '+', ' ', '-', ' '},
-                {' ', tic[6], ' ', '|', ' ', tic[7], ' ', '|', ' ', tic[8], ' '}
+                {' ', getFilledCells(6).charAt(0), ' ', '|', ' ', getFilledCells(7).charAt(0), ' ', '|', ' ', getFilledCells(8).charAt(0), ' '}
         };
 
 
