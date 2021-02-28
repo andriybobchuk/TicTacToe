@@ -1,10 +1,12 @@
 package com.andriybobchuk.participants;
 
 import com.andriybobchuk.Main;
+import com.andriybobchuk.Statistics;
 import com.andriybobchuk.helperFunctions.Helpers;
 import com.andriybobchuk.battleField.Cells;
 
 import java.util.Scanner;
+import java.util.prefs.Preferences;
 
 
 /**
@@ -13,9 +15,15 @@ import java.util.Scanner;
 public class Judge {
 
 
+
     public static void determineWinner(char winner)
     {
         System.out.println("\n'" + winner + "' Won!");
+
+        // Update the statistics for the winner
+        //Statistics s = new Statistics();
+        Statistics.updateStats(String.valueOf(winner));
+
         replayQuestion();
     }
 
@@ -50,10 +58,19 @@ public class Judge {
 
     public static void replayQuestion()
     {
-        System.out.println("Once again? (Y/N): ");
+        System.out.println("Once again? (Y/N)");
+        System.out.println("Wanna see statistics? (S)");
+
         Scanner input = new Scanner(System.in);
 
-        if(input.next().equalsIgnoreCase("Y"))
+        String userDecision = input.next();
+
+
+        if (userDecision.equalsIgnoreCase("S"))
+        {
+            Statistics.showStats();
+        }
+        else if(userDecision.equalsIgnoreCase("Y"))
         {
             Main.main(null);
         }
@@ -63,5 +80,6 @@ public class Judge {
         }
 
     }
+
 
 }

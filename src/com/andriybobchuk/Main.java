@@ -18,7 +18,7 @@ public class Main extends Helpers {
 
         if(turn.equals("opponent"))
         {
-            System.out.println("Opponent goes first with 'X' ↓");
+//            System.out.println("Opponent goes first (X)");
 
             for(int i = 0; i < 4; i++)
             {
@@ -30,7 +30,7 @@ public class Main extends Helpers {
         }
         else if(turn.equals("player"))
         {
-            System.out.println("You go first with 'O' ↓");
+            System.out.println("You go first (O)");
 
             for(int i = 0; i < 4; i++)
             {
@@ -43,6 +43,7 @@ public class Main extends Helpers {
 
 
         System.out.println("\nDraw XO!");
+        Statistics.updateStats("XO");
         Judge.replayQuestion();
 
 
