@@ -39,7 +39,7 @@ public class Opponent extends Cells {
         {
             if(nextEmptyCornerIndex() != -1)
             {
-                setFilledCells(nextEmptyCornerIndex(), "X");
+                setFilledCells(nextEmptyCornerIndex(), 'X');
                 break;
             }
             else // no empty corners
@@ -49,7 +49,7 @@ public class Opponent extends Cells {
 
                 if(emptyCell(cell))
                 {
-                    setFilledCells(cell, "X");
+                    setFilledCells(cell, 'X');
                     break;
                 }
             }

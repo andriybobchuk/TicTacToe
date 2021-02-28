@@ -8,7 +8,7 @@ class PlayerChancesToWin extends Cells{
 
     public static boolean removePlayerWinPossibilities()
     {
-        String[][] board = Helpers.toMatrix(getWholeArray());
+        char[][] board = Helpers.toMatrix(getWholeArray());
 
         if (removeVerticalHazards(board)) return true;
 
@@ -23,13 +23,13 @@ class PlayerChancesToWin extends Cells{
     }
 
 
-    public static boolean removeVerticalHazards(String[][] board)
+    public static boolean removeVerticalHazards(char[][] board)
     {
         //vertical lines
         for(int i = 0; i<3; i++){
 
 
-            String line = board[i][0] + board[i][1] + board[i][2];
+            String line = Character.toString(board[i][0]) + Character.toString(board[i][1]) + Character.toString(board[i][2]);
 
             int playerCounter = 0;
 
@@ -52,7 +52,7 @@ class PlayerChancesToWin extends Cells{
 
                     if(emptyCell(index))
                     {
-                        setFilledCells(index, "X");
+                        setFilledCells(index, 'X');
                         return true;
                     }
                 }
@@ -61,13 +61,13 @@ class PlayerChancesToWin extends Cells{
         return false;
     }
 
-    public static boolean removeHorizontalHazards(String[][] board)
+    public static boolean removeHorizontalHazards(char[][] board)
     {
         // Horizontal lines
         for(int i = 0; i<3; i++){
 
 
-            String line = board[0][i] + board[1][i] + board[2][i];
+            String line = Character.toString(board[0][i]) + Character.toString(board[1][i]) + Character.toString(board[2][i]);
 
             int playerCounter = 0;
 
@@ -90,7 +90,7 @@ class PlayerChancesToWin extends Cells{
 
                     if(emptyCell(index))
                     {
-                        setFilledCells(index, "X");
+                        setFilledCells(index, 'X');
                         return true;
                     }
                 }
@@ -100,11 +100,11 @@ class PlayerChancesToWin extends Cells{
     }
 
 
-    public static boolean removeMainDiagonalHazards(String[][] board)
+    public static boolean removeMainDiagonalHazards(char[][] board)
     {
 
         // Main Diagonal
-        String line = board[0][0] + board[1][1] + board[2][2];
+        String line = Character.toString(board[0][0]) + Character.toString(board[1][1]) + Character.toString(board[2][2]);
 
         int playerCounter = 0;
 
@@ -131,7 +131,7 @@ class PlayerChancesToWin extends Cells{
 
                         if(emptyCell(index))
                         {
-                            setFilledCells(index, "X");
+                            setFilledCells(index, 'X');
                             return true;
                         }
                     }
@@ -146,11 +146,11 @@ class PlayerChancesToWin extends Cells{
     }
 
 
-    public static boolean removeSecondaryDiagonalHazards(String[][] board)
+    public static boolean removeSecondaryDiagonalHazards(char[][] board)
     {
 
         // Secondary Diagonal
-        String line = board[2][0] + board[1][1] + board[0][2];
+        String line = Character.toString(board[2][0]) + Character.toString(board[1][1]) + Character.toString(board[0][2]);
 
         int playerCounter = 0;
 
@@ -177,7 +177,7 @@ class PlayerChancesToWin extends Cells{
 
                         if(emptyCell(index))
                         {
-                            setFilledCells(index, "X");
+                            setFilledCells(index, 'X');
                             return true;
                         }
                     }

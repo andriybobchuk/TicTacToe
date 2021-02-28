@@ -11,11 +11,11 @@ public class GameBoard extends Cells{
         Helpers.clear();
 
 
-        char[][] gameBoard = { {' ', getFilledCells(0).charAt(0), ' ', '|', ' ', getFilledCells(1).charAt(0), ' ', '|', ' ', getFilledCells(2).charAt(0), ' '},
+        char[][] gameBoard = { {' ', getFilledCells(0), ' ', '|', ' ', getFilledCells(1), ' ', '|', ' ', getFilledCells(2), ' '},
                 {' ', '-', ' ', '+', ' ', '-', ' ', '+', ' ', '-', ' '},
-                {' ', getFilledCells(3).charAt(0), ' ', '|', ' ', getFilledCells(4).charAt(0), ' ', '|', ' ', getFilledCells(5).charAt(0), ' '},
+                {' ', getFilledCells(3), ' ', '|', ' ', getFilledCells(4), ' ', '|', ' ', getFilledCells(5), ' '},
                 {' ', '-', ' ', '+', ' ', '-', ' ', '+', ' ', '-', ' '},
-                {' ', getFilledCells(6).charAt(0), ' ', '|', ' ', getFilledCells(7).charAt(0), ' ', '|', ' ', getFilledCells(8).charAt(0), ' '}
+                {' ', getFilledCells(6), ' ', '|', ' ', getFilledCells(7), ' ', '|', ' ', getFilledCells(8), ' '}
         };
 
 

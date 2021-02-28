@@ -6,7 +6,7 @@ public class Cells {
 
 
 
-    private static String[] filledCells = new String[9];
+    private static char[] filledCells = new char[9];
 
     // Cell groups:
     static int[] CORNERS_INDICES = {0, 2, 6, 8};
@@ -15,23 +15,23 @@ public class Cells {
 
 
 
-    public static String[] getWholeArray() {
+    public static char[] getWholeArray() {
         return filledCells;
     }
 
-    public static String getFilledCells(int index) {
+    public static char getFilledCells(int index) {
         return filledCells[index];
     }
 
 
-    public static void setFilledCells(int index, String id) {
+    public static void setFilledCells(int index, char id) {
         filledCells[index] = id;
     }
 
     public static void resetAllCells() {
         for (int i = 0; i < 9; i++)
         {
-            filledCells[i] = String.valueOf(i+1);
+            filledCells[i] = Character.forDigit(i+1,10);
 
         }
     }
