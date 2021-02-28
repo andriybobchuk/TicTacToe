@@ -1,7 +1,6 @@
 package com.andriybobchuk.battleField;
 
 import com.andriybobchuk.helperFunctions.Helpers;
-import com.andriybobchuk.battleField.Cells;
 
 public class GameBoard extends Cells{
 
@@ -11,11 +10,11 @@ public class GameBoard extends Cells{
         Helpers.clear();
 
 
-        char[][] gameBoard = { {' ', getFilledCells(0), ' ', '|', ' ', getFilledCells(1), ' ', '|', ' ', getFilledCells(2), ' '},
+        char[][] gameBoard = { {' ', getCell(0), ' ', '|', ' ', getCell(1), ' ', '|', ' ', getCell(2), ' '},
                 {' ', '-', ' ', '+', ' ', '-', ' ', '+', ' ', '-', ' '},
-                {' ', getFilledCells(3), ' ', '|', ' ', getFilledCells(4), ' ', '|', ' ', getFilledCells(5), ' '},
+                {' ', getCell(3), ' ', '|', ' ', getCell(4), ' ', '|', ' ', getCell(5), ' '},
                 {' ', '-', ' ', '+', ' ', '-', ' ', '+', ' ', '-', ' '},
-                {' ', getFilledCells(6), ' ', '|', ' ', getFilledCells(7), ' ', '|', ' ', getFilledCells(8), ' '}
+                {' ', getCell(6), ' ', '|', ' ', getCell(7), ' ', '|', ' ', getCell(8), ' '}
         };
 
 

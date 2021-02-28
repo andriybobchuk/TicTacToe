@@ -2,69 +2,100 @@ package com.andriybobchuk.battleField;
 
 import com.andriybobchuk.helperFunctions.Helpers;
 
+import java.util.ArrayList;
+import java.util.Random;
+
 public class Cells {
 
 
-
-    private static char[] filledCells = new char[9];
-
-    // Cell groups:
-    static int[] CORNERS_INDICES = {0, 2, 6, 8};
+    private static char[] cells = new char[9];
 
 
-
-
-
-    public static char[] getWholeArray() {
-        return filledCells;
-    }
-
-    public static char getFilledCells(int index) {
-        return filledCells[index];
+    /**
+     * Returns all at once
+     * @return whole cells array
+     */
+    public static char[] getAllCells() {
+        return cells;
     }
 
 
-    public static void setFilledCells(int index, char id) {
-        filledCells[index] = id;
+    /**
+     * Returns the required cell
+     * @param index of cell you need
+     * @return cell
+     */
+    public static char getCell(int index) {
+        return cells[index];
     }
 
-    public static void resetAllCells() {
+
+    /**
+     * Fill the required cell by 'X' or 'O'
+     * @param index cell you require
+     * @param id sign to fill the cell with (X\O)
+     */
+    public static void setCell(int index, char id) {
+        cells[index] = id;
+    }
+
+
+    /**
+     * Fills cells with consecutive numbers on start
+     */
+    public static void resetCells() {
         for (int i = 0; i < 9; i++)
         {
-            filledCells[i] = Character.forDigit(i+1,10);
-
+            cells[i] = Character.forDigit(i+1,10);
         }
     }
 
+
     /**
-     * Checks if the cell is empty
+     * Checks if the cell is empty.
      * @param index
      * @return
      */
-    public static boolean emptyCell(int index)
+    public static boolean isEmpty(int index)
     {
-        if(!Helpers.isNumeric(filledCells[index]))
-        {
-            return false;
-        }
-        else
-        {
-            return true;
-        }
+        return (!Helpers.isNumeric(cells[index])) ? false : true;
     }
 
 
-    public static int nextEmptyCornerIndex()
+    /**
+     * Fills random corner.
+     * @return true if execution finished successfully.
+     */
+    public static boolean fillRandomCorner()
     {
-        int nextEmptyCornerIndex = -1;
+        int[] CORNERS_INDICES = {0, 2, 6, 8};
+        ArrayList<Integer> emptyCorners = new ArrayList<Integer>(4);  // Capacity != Size
 
-        for (int i = 0; i < CORNERS_INDICES.length; i++)
+        // First check if we have any empty corner:
+        for(int i = 0; i < 4; i++)
         {
-            if(emptyCell(CORNERS_INDICES[i]))
+            if(isEmpty(CORNERS_INDICES[i]))
             {
-                nextEmptyCornerIndex = CORNERS_INDICES[i];
+                emptyCorners.add(CORNERS_INDICES[i]);
             }
         }
-        return nextEmptyCornerIndex;
+
+
+
+        // Then fill any of the EMPTY corners
+        if(!emptyCorners.isEmpty())
+        {
+            Random rand = new Random();
+
+            int cell = emptyCorners.get(rand.nextInt(emptyCorners.size()));
+
+            if(isEmpty(cell))
+            {
+                setCell(cell, 'X');
+                return true;
+            }
+        }
+
+        return false;
     }
 }

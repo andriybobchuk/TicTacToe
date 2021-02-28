@@ -2,6 +2,7 @@ package com.andriybobchuk;
 
 
 import com.andriybobchuk.helperFunctions.Helpers;
+import com.andriybobchuk.participants.Judge;
 import com.andriybobchuk.participants.opponent.Opponent;
 import com.andriybobchuk.participants.Player;
 import com.andriybobchuk.battleField.Cells;
@@ -11,7 +12,7 @@ public class Main extends Helpers {
 
     public static void main(String[] args) {
 
-        Cells.resetAllCells();
+        Cells.resetCells();
 
         String turn = lot();
 
@@ -42,6 +43,7 @@ public class Main extends Helpers {
 
 
         System.out.println("\nDraw XO!");
+        Judge.replayQuestion();
 
 
     }

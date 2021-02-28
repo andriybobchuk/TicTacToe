@@ -15,15 +15,16 @@ public class Opponent extends Cells {
      *
      *      - Check if player has any possibilities to win in the next step, if yes - remove it;
      *      - Check if opponent has any possibilities to win in the next step, if yes - do it;
-     *      - if neither player nor opponent has any possibilities than put 'X' in random CORNER
+     *      - if neither player nor opponent has any possibilities, than put 'X' in random CORNER
      *      - if corners are full, put 'X' in ANY other cell, doesn't matter much at this point.
      *
      */
     public static void move()  {
 
 
-
-        if(PlayerChancesToWin.removePlayerWinPossibilities() == false) defMove();
+        if(OpponentChancesToWin.useWinPossibilities() == false)
+            if(PlayerChancesToWin.removePlayerWinPossibilities() == false)
+                 defMove();
 
 
         GameBoard.update();
@@ -37,19 +38,18 @@ public class Opponent extends Cells {
     {
         while(true) // Runs until we fill any empty cell
         {
-            if(nextEmptyCornerIndex() != -1)
+            if(fillRandomCorner())
             {
-                setFilledCells(nextEmptyCornerIndex(), 'X');
                 break;
             }
-            else // no empty corners
+            else
             {
                 Random rand = new Random();
                 int cell = rand.nextInt(9);
 
-                if(emptyCell(cell))
+                if(isEmpty(cell))
                 {
-                    setFilledCells(cell, 'X');
+                    setCell(cell, 'X');
                     break;
                 }
             }

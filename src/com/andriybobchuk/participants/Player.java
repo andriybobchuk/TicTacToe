@@ -19,10 +19,10 @@ public class Player {
         int cell = input.nextInt();
 
 
-        if(Cells.emptyCell((cell-1)))
+        if(Cells.isEmpty((cell-1)))
         {
             // Send the chosen cell to array of filled cells
-            Cells.setFilledCells((cell-1), 'O');
+            Cells.setCell((cell-1), 'O');
 
             // Refresh the gameBoard
             GameBoard.update();

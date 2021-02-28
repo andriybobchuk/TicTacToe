@@ -8,7 +8,7 @@ class PlayerChancesToWin extends Cells{
 
     public static boolean removePlayerWinPossibilities()
     {
-        char[][] board = Helpers.toMatrix(getWholeArray());
+        char[][] board = Helpers.toMatrix(getAllCells());
 
         if (removeVerticalHazards(board)) return true;
 
@@ -50,9 +50,9 @@ class PlayerChancesToWin extends Cells{
                 {
                     int index = (j*3) + i;
 
-                    if(emptyCell(index))
+                    if(isEmpty(index))
                     {
-                        setFilledCells(index, 'X');
+                        setCell(index, 'X');
                         return true;
                     }
                 }
@@ -88,9 +88,9 @@ class PlayerChancesToWin extends Cells{
                 {
                     int index = (i*3) + j;
 
-                    if(emptyCell(index))
+                    if(isEmpty(index))
                     {
-                        setFilledCells(index, 'X');
+                        setCell(index, 'X');
                         return true;
                     }
                 }
@@ -129,9 +129,9 @@ class PlayerChancesToWin extends Cells{
                     {
                         int index = (i*3) + j;
 
-                        if(emptyCell(index))
+                        if(isEmpty(index))
                         {
-                            setFilledCells(index, 'X');
+                            setCell(index, 'X');
                             return true;
                         }
                     }
@@ -175,9 +175,9 @@ class PlayerChancesToWin extends Cells{
                     {
                         int index = (i*3) + j;
 
-                        if(emptyCell(index))
+                        if(isEmpty(index))
                         {
-                            setFilledCells(index, 'X');
+                            setCell(index, 'X');
                             return true;
                         }
                     }
