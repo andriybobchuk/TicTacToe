@@ -18,8 +18,6 @@ public class Main extends Helpers {
 
         if(turn.equals("opponent"))
         {
-//            System.out.println("Opponent goes first (X)");
-
             for(int i = 0; i < 4; i++)
             {
                 Opponent.move();
